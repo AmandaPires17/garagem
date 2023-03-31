@@ -13,7 +13,7 @@ class Categoria(models.Model):
     def __str__(self):
         return self.descricao
     
-class Acessorios(models.Model):
+class Acessorio(models.Model):
     descricao = models.CharField(max_length=100)
 
     def __str__(self):
@@ -24,3 +24,13 @@ class Cor(models.Model):
 
      def __str__(self):
         return self.descricao
+     
+class Veiculo(models.Model):
+    marca = models.ForeignKey('Marca', on_delete=models.CASCADE)
+    categoria = models.ForeignKey('Categoria', on_delete=models.CASCADE)
+    cor = models.ForeignKey('Cor', on_delete=models.CASCADE)
+    ano = models.IntegerField(null=True, default=0)
+    preco = models.DecimalField(max_digits=10, decimal_places=2, null=True, default=0)
+
+    def __str__(self):
+        return f"{self.marca} {self.categoria} {self.ano} {self.cor}"
