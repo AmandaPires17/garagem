@@ -1,8 +1,8 @@
 from rest_framework.serializers import ModelSerializer
 
-from garagem.models import Categoria
+from garagem.models import Marca
 
-class CategoriaSerializer(ModelSerializer):
+class MarcaSerializer(ModelSerializer):
     class Meta:
-        model = Categoria
+        model = Marca
         fields = "__all__"
